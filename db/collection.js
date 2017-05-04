@@ -1,4 +1,3 @@
-require('../config/env');
 const connection = require('./connection');
 
 /**
@@ -125,6 +124,12 @@ class Collection{
       });
   }
 
+  /**
+   * Return the first document matching the query
+   *
+   * @param {object} query - The criteria for selecting the document
+   * @param {object} options - The options object
+   */
   findOne(query, options) {
     options = options || {};
     return connection
@@ -149,6 +154,13 @@ class Collection{
       });
   }
 
+  /**
+   * Update a single document as specified by the filter in the collection
+   *
+   * @param {object} filter - The criteria for selecting the document to update
+   * @param {object} doc - The data to update the document
+   * @param {object} options - The options object
+   */
   findOneAndUpdate(filter, doc, options){
     options = options || {};
     return connection
@@ -157,6 +169,12 @@ class Collection{
       });
   }
 
+  /**
+   * Insert a single document as specified by the filter in the collection
+   *
+   * @param {object} doc - The data to update the document
+   * @param {object} options - The options object
+   */
   insertOne(doc, options){
     options = options || {};
     return connection
@@ -166,6 +184,22 @@ class Collection{
   }
 
 }
+
+/**
+ * Wraps the cursor.toArray method in a Promise
+ * 
+ * @param {object} cursor - The db cursor
+ */
+function toArray(cursor){
+  return new Promise((resolve, reject) => {
+    cursor.toArray((err, docs) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(docs);
+    });
+  });
+};
 
 /**
  * Additional method added to the Collection.find method

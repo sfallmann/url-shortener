@@ -12,15 +12,15 @@ const normalizeOpts = {
 
 function shorten(url) {
   const normalizedUrl = normalize(url, normalizeOpts);
-  return Urls.findOne({normalizedUrl})
+  return Urls.findOne({url: normalizedUrl})
     .then((doc) => {
       if (doc === null) {
-        return Urls.insertOne({_id: sum(url), url, normalizedUrl})
+        return Urls.insertOne({_id: sum(normalizedUrl), url: normalizedUrl})
           .then((results) => {
-            return results.ops[0]._id;
+            return results.ops[0];
           });
       } else {
-        return doc._id;
+        return doc;
       }
     });
 }
@@ -29,7 +29,7 @@ function retrieve(_id) {
   return Urls.findOne({_id})
     .then((doc) => {
       if (doc !== null) {
-        return doc.url;
+        return doc;
       }
       return null;
     });

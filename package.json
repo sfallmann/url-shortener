@@ -4,11 +4,25 @@
   "description": "A url shortening service",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha **/tests/*.test.js",
+    "test-watch": "nodemon --exec \"npm test\"",
     "start": "node server.js"
   },
-  "author": "Sean Fallmann  ",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfallmann/url-shortener.git"
+  },
+  "keywords": [
+    "freecodecamp",
+    "microservice",
+    "url shortener"
+  ],
+  "author": "Sean Fallmann",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfallmann/url-shortener/issues"
+  },
+  "homepage": "https://github.com/sfallmann/url-shortener#readme",
   "dependencies": {
     "express": "^4.15.2",
     "hash-sum": "^1.0.2",
