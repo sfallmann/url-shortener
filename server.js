@@ -5,11 +5,12 @@ const app = express();
 const urls = require('./api/routes/urls');
 const port = process.env.PORT || 3000;
 
+app.use(express.static('public'));
 app.use('/urls', urls);
 app.use((err, req, res, next) => {
   // Real error logging\handling should go here
   console.log(err);
-})
+});
 
 app.listen(port);
 

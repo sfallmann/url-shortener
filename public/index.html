@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Url shortener microservice">
+  <meta name="keywords" content="url shortener, microservice, express, json">
+  <meta name="author" content="Sean Fallmann">  
+  <title>Url Shortener</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
+  <style>
+    h1, h2 {
+      text-align: center;
+    }
+    .panel {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section>
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Url Shortener</h1>
+          <h2>Freecodecamp API Project</h2>
+          <div class="panel panel-default">
+            <div class="panel-heading">Project <Checklist></Checklist></div>
+            <div class="panel-body">
+              <ul>
+                <li>
+                  I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+                </li>
+                <li>
+                  If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
+                </li>
+                <li>
+                  When I visit that shortened URL, it will redirect me to my original link.
+                </li>
+              </ul>
+              <h3>Example:</h3>
+              <br>
+              <p>https://young-waters-71078.herokuapp.com/urls/shorten/https://google.com</p>
+              <h4>response:</h4>
+              <p>
+                {
+                  url: "http://google.com",
+                  shortUrl: "http://young-waters-71078.herokuapp.com/urls/retrieve/5056dea8"
+                }
+              </p>
+              <br>
+              <p>http://young-waters-71078.herokuapp.com/urls/retrieve/5056dea8</p>
+              <h4>redirects to:</h4>
+              <p>http://google.com</p>              
+            </div>
+            <div class="panel-footer">
+              <p>All urls are normalized before being added to the database</p>
+              <p>Source code: 
+                <a href="https://github.com/sfallmann/url-shortener" target="_blank">github.com/sfallmann/url-shortener</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
