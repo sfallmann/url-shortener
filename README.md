@@ -28,8 +28,7 @@
 
   Or go to:
 
-  https://young-waters-71078.herokuapp.com/urls/shorten/<url>
-  https://young-waters-71078.herokuapp.com/urls/retrieve/<shorturl>
+  [https://young-waters-71078.herokuapp.com](https://young-waters-71078.herokuapp.com)
 
 ## Tests
 
